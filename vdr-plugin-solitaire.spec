@@ -2,7 +2,7 @@
 %define plugin	solitaire
 %define name	vdr-plugin-%plugin
 %define version	0.0.2
-%define rel	13
+%define rel	14
 
 Summary:	VDR plugin: The well-known card game
 Name:		%name
@@ -13,8 +13,10 @@ License:	GPL
 URL:		http://www.djdagobert.com/vdr/solitaire/
 Source:		http://www.djdagobert.com/vdr/solitaire/vdr-%plugin-%version.tar.bz2
 Patch0:		vdr-cardgames-0.0.2-to-gcc3.4.diff
+Patch1:		91_solitaire-0.0.2-1.5.4.dpatch
+Patch2:		solitaire-0.0.2-i18n-1.6.patch
 BuildRoot:	%{_tmppath}/%{name}-buildroot
-BuildRequires:	vdr-devel >= 1.4.1-6
+BuildRequires:	vdr-devel >= 1.6.0
 BuildRequires:	dos2unix
 Requires:	vdr-abi = %vdr_abi
 
@@ -27,6 +29,9 @@ This solitaire plugin is an implementation of the (well-known) card game
 cd %plugin
 dos2unix tools/list.h
 %patch0 -p1 -b .gcc34
+%patch1 -p1
+%patch2 -p1
+%vdr_plugin_prep
 
 chmod 0644 CONTRIBUTORS HISTORY README
 
