@@ -2,7 +2,7 @@
 %define plugin	solitaire
 %define name	vdr-plugin-%plugin
 %define version	0.0.2
-%define rel	17
+%define rel	18
 
 Summary:	VDR plugin: The well-known card game
 Name:		%name
@@ -15,7 +15,6 @@ Source:		http://www.djdagobert.com/vdr/solitaire/vdr-%plugin-%version.tar.bz2
 Patch0:		vdr-cardgames-0.0.2-to-gcc3.4.diff
 Patch1:		91_solitaire-0.0.2-1.5.4.dpatch
 Patch2:		solitaire-0.0.2-i18n-1.6.patch
-BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	vdr-devel >= 1.6.0
 BuildRequires:	dos2unix
 Requires:	vdr-abi = %vdr_abi
@@ -40,7 +39,6 @@ cd %plugin
 %vdr_plugin_build
 
 %install
-rm -rf %{buildroot}
 
 cd %plugin
 %vdr_plugin_install
@@ -49,15 +47,6 @@ install -d -m755 %{buildroot}%{_vdr_plugin_datadir}/%{plugin}
 install -d -m755 %{buildroot}%{_vdr_plugin_cfgdir}
 install -m644 solitaire/* %{buildroot}%{_vdr_plugin_datadir}/%{plugin}
 ln -s %{_vdr_plugin_datadir}/%{plugin} 	%{buildroot}%{_vdr_plugin_cfgdir}/solitaire
-
-%clean
-rm -rf %{buildroot}
-
-%post
-%vdr_plugin_post %plugin
-
-%postun
-%vdr_plugin_postun %plugin
 
 %files -f %plugin/%plugin.vdr
 %defattr(-,root,root)
