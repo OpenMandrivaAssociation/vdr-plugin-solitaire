@@ -3,7 +3,7 @@
 Summary:	VDR plugin: The well-known card game
 Name:		vdr-plugin-%plugin
 Version:	0.0.2
-Release:	20
+Release:	21
 Group:		Video
 License:	GPL
 URL:		http://www.djdagobert.com/vdr/solitaire/
