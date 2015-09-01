@@ -39,12 +39,12 @@ cd %plugin
 cd %plugin
 %vdr_plugin_install
 
-install -d -m755 %{buildroot}%{_vdr_plugin_datadir}/%{plugin}
-install -d -m755 %{buildroot}%{_vdr_plugin_cfgdir}
-install -m644 solitaire/* %{buildroot}%{_vdr_plugin_datadir}/%{plugin}
-ln -s %{_vdr_plugin_datadir}/%{plugin} 	%{buildroot}%{_vdr_plugin_cfgdir}/solitaire
+install -d -m755 %{buildroot}%{vdr_plugin_datadir}/%{plugin}
+install -d -m755 %{buildroot}%{vdr_plugin_cfgdir}
+install -m644 solitaire/* %{buildroot}%{vdr_plugin_datadir}/%{plugin}
+ln -s %{vdr_plugin_datadir}/%{plugin} 	%{buildroot}%{vdr_plugin_cfgdir}/solitaire
 
 %files -f %plugin/%plugin.vdr
 %doc %plugin/README %plugin/HISTORY %plugin/CONTRIBUTORS
-%{_vdr_plugin_cfgdir}/solitaire
-%{_vdr_plugin_datadir}/%{plugin}
+%{vdr_plugin_cfgdir}/solitaire
+%{vdr_plugin_datadir}/%{plugin}
