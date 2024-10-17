@@ -6,7 +6,7 @@ Version:	0.0.2
 Release:	21
 Group:		Video
 License:	GPL
-URL:		http://www.djdagobert.com/vdr/solitaire/
+URL:		https://www.djdagobert.com/vdr/solitaire/
 Source:		http://www.djdagobert.com/vdr/solitaire/vdr-%plugin-%{version}.tgz
 Patch0:		vdr-cardgames-0.0.2-to-gcc3.4.diff
 Patch1:		91_solitaire-0.0.2-1.5.4.dpatch
